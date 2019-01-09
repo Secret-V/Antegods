@@ -9,6 +9,18 @@ public class Explosion : MonoBehaviour
     public float minimumKnockbackForce = 5.0f;
     public float maximumKnockbackForce = 50.0f;
 
+    private void Start()
+    {
+        StartCoroutine(DisableHitbox());
+    }
+
+    private IEnumerator DisableHitbox()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        GetComponent<SphereCollider>().enabled = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         float dx = other.transform.position.x - transform.position.x;
