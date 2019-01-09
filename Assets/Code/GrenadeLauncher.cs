@@ -10,6 +10,8 @@ public class GrenadeLauncher : MonoBehaviour
 
     public GameObject chargeBar;
 
+    public Camera playerCamera;
+
     public float minimumShootForce = 50.0f;
     public float maximumShootForce = 250.0f;
 
@@ -25,7 +27,7 @@ public class GrenadeLauncher : MonoBehaviour
     
     void Update()
     {
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 screenPos = playerCamera.WorldToScreenPoint(transform.position);
 
         Vector2 targetPos;
         if (PlayerID == 1) targetPos = Input.mousePosition;
